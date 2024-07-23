@@ -93,7 +93,8 @@ export const visualizar = ()=>{
                                     <Link href={{pathname:"Editar2",query:{key:p.key}}}>
                                     <Button variant='warning'>Editar</Button>
                                     </Link>
-                                    <Button variant='danger'>Eliminar</Button>
+                                    <Link href={{pathname:"Eliminar",query:{key:p.key}}}>
+                                    <Button variant='danger'>Eliminar</Button></Link>
                                 </td>
                             </tr>
                             )

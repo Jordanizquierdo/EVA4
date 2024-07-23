@@ -1,22 +1,23 @@
 
-import { ObtenerPersona } from '@/Firebase/promesas'
+import { Eliminar_d, ObtenerPersona } from '@/Firebase/promesas'
 import { useRouter } from 'next/router'
 import React, {useEffect,useState} from 'react'
-import { Persona } from '@/Interfaces/ipersona'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Mascota } from '@/Interfaces/imascota';
 
 
 
-
-const Modal = ({ show, handleClose, handleSave }) => {
-    const modalClass = show ? "modal display-block" : "modal display-none";
-
-
+const initialState:Mascota ={
+  nombre:"",
+  edad:0,
+  raza:"",
+  tipo:"",
+  duenio:""
 }
+
 export const Eliminar = () => {
     const router = useRouter()
-    
-
+    const [mascota] = useState<Mascota>(initialState)
     useEffect(() => {
         const key = router.query.key;
         console.log(key)
@@ -35,29 +36,19 @@ export const Eliminar = () => {
         }
         
     },[])
+    if(confirm("Desea eliminar los registros de: \n"+mascota.nombre)){
+      Eliminar_d(mascota)
+      alert("Se elimino con exito")
+    }
+    else{
+        //si no damos a confirmar muestra un mensaje en la consola
+        console.log("Cancelaste la eliminacion")
+  }  
 
     
   return (
     <>
-      <div className={modalClass} tabIndex="-1" role="dialog">
-      <div className="modal-dialog" role="document">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">Modal title</h5>
-            <button type="button" className="close" onClick={handleClose} aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div className="modal-body">
-            <p>Modal body text goes here.</p>
-          </div>
-          <div className="modal-footer">
-            <button type="button" className="btn btn-primary" onClick={handleSave}>Save changes</button>
-            <button type="button" className="btn btn-secondary" onClick={handleClose}>Close</button>
-          </div>
-        </div>
-      </div>
-    </div>  
+      
     </>
   )
 }

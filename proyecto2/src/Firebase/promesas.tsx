@@ -104,7 +104,7 @@ export const ObtenerMascota = async(key:string)=>{
     }
 }
 
-export const Eliminar = async(p:Persona)=>{
+export const Eliminar_d = async(p:Mascota)=>{
     const ref = doc(db,"mascotas",p.key!);
     await deleteDoc(ref);
 }
