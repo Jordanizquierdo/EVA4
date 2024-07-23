@@ -11,7 +11,8 @@ const initialState:Persona ={
     correo:"",
     edad:0,
     nombre:"",
-    rut:""
+    rut:"",
+    contrasena:""
 }
 
 
@@ -49,10 +50,19 @@ export const RegistrarUser = () => {
             <Form.Text></Form.Text>
         </Form.Group>
 
+
         <Form.Group>
             <Form.Label>Correo</Form.Label>
             <Form.Control type="email" placeholder='Ingrese Correo'
             name='correo'
+            onChange={(e)=>{handlepersona(e.currentTarget.name,e.currentTarget.value)}} />
+            <Form.Text></Form.Text>
+        </Form.Group>
+
+        <Form.Group>
+            <Form.Label>Contraseña</Form.Label>
+            <Form.Control type="email" placeholder='Ingrese una contraseña'
+            name='contrasena'
             onChange={(e)=>{handlepersona(e.currentTarget.name,e.currentTarget.value)}} />
             <Form.Text></Form.Text>
         </Form.Group>

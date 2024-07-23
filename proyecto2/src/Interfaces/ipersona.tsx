@@ -3,6 +3,7 @@ export interface Persona{
     apellido:string,
     rut:string,
     edad:number,
-    correo:string
+    correo:string,
+    contrasena:string
     key?:string
 }

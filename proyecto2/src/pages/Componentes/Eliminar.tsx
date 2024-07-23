@@ -24,7 +24,7 @@ export const Eliminar = () => {
         if(key!=undefined && typeof(key)==="string"){
             ObtenerPersona(key).then((p)=>{
                 if(p!=undefined){
-                    
+                  console.log(p)  
                 }
                 else{
                     //volver a la tabla
@@ -36,14 +36,6 @@ export const Eliminar = () => {
         }
         
     },[])
-    if(confirm("Desea eliminar los registros de: \n"+mascota.nombre)){
-      Eliminar_d(mascota)
-      alert("Se elimino con exito")
-    }
-    else{
-        //si no damos a confirmar muestra un mensaje en la consola
-        console.log("Cancelaste la eliminacion")
-  }  
 
     
   return (

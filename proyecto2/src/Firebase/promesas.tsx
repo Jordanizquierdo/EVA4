@@ -42,6 +42,7 @@ export const obtenerPersonas = async()=>{
             correo:doc.data().correo,
             edad:doc.data().edad,
             rut:doc.data().rut,
+            contrasena:doc.data().contrasena,
             key:doc.id
 
         }
@@ -61,6 +62,7 @@ export const ObtenerPersona = async(key:string)=>{
             correo:docSnap.data().correo,
             edad:docSnap.data().edad,
             rut:docSnap.data().rut,
+            contrasena:docSnap.data().contrasena,
             key:docSnap.id
 
         }
@@ -106,5 +108,11 @@ export const ObtenerMascota = async(key:string)=>{
 
 export const Eliminar_d = async(p:Mascota)=>{
     const ref = doc(db,"mascotas",p.key!);
+    await deleteDoc(ref);
+}
+
+
+export const Eliminar_p = async(p:Persona)=>{
+    const ref = doc(db,"personas",p.key!);
     await deleteDoc(ref);
 }
