@@ -4,7 +4,7 @@ import { Mascota } from '@/Interfaces/imascota'
 import { Form } from 'react-bootstrap'
 import { Button } from 'react-bootstrap'
 import {actualizarMascota,ObtenerMascota } from '@/Firebase/promesas'
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 const initialState:Mascota ={
     nombre:"",
     edad:0,
