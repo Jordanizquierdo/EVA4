@@ -10,7 +10,11 @@ const initialState:Mascota ={
     edad:0,
     raza:"",
     tipo:"",
-    duenio:""
+    duenio:"",
+    direccion:"",
+    telefono:"",
+    n_duenio:""
+
 }
 
 
@@ -48,26 +52,54 @@ export const RegistrarUser = () => {
             <Form.Text></Form.Text>
         </Form.Group>
 
+
+        <Form.Group>
+            <Form.Label>Tipo</Form.Label>
+            <Form.Control as="select" name="tipo" onChange={(e) => handlemascota(e.currentTarget.name, e.currentTarget.value)}>
+                <option value="">Seleccione el tipo de mascota</option>
+                <option value="perro">Perro</option>
+                <option value="gato">Gato</option>
+                <option value="hamster">Hamster</option>
+            </Form.Control>
+            <Form.Text></Form.Text>
+        </Form.Group>
+
         <Form.Group>
             <Form.Label>Raza</Form.Label>
-            <Form.Control type="email" placeholder='Ingrese la raza'
+            <Form.Control type="text" placeholder='Ingrese la raza'
             name='raza'
             onChange={(e)=>{handlemascota(e.currentTarget.name,e.currentTarget.value)}} />
             <Form.Text></Form.Text>
         </Form.Group>
 
         <Form.Group>
-            <Form.Label>tipo</Form.Label>
-            <Form.Control type="email" placeholder='Ingrese el tipo de mascota'
-            name='tipo'
+            <Form.Label>Nombre del dueño</Form.Label>
+            <Form.Control type="text" placeholder='Ingrese el nombre del dueño'
+            name='n_duenio'
             onChange={(e)=>{handlemascota(e.currentTarget.name,e.currentTarget.value)}} />
             <Form.Text></Form.Text>
         </Form.Group>
 
         <Form.Group>
             <Form.Label>Rut dueño</Form.Label>
-            <Form.Control type="email" placeholder='Ingrese el rut del dueño'
+            <Form.Control type="text" placeholder='Ingrese el rut del dueño'
             name='duenio'
+            onChange={(e)=>{handlemascota(e.currentTarget.name,e.currentTarget.value)}} />
+            <Form.Text></Form.Text>
+        </Form.Group>
+
+        <Form.Group>
+            <Form.Label>Direccion</Form.Label>
+            <Form.Control type="text" placeholder='Ingrese la direccion del propietario'
+            name='direccion'
+            onChange={(e)=>{handlemascota(e.currentTarget.name,e.currentTarget.value)}} />
+            <Form.Text></Form.Text>
+        </Form.Group>
+
+        <Form.Group>
+            <Form.Label>Telefono de contacto</Form.Label>
+            <Form.Control type="text" placeholder='Ingrese el numero de telefono del propietario'
+            name='telefono'
             onChange={(e)=>{handlemascota(e.currentTarget.name,e.currentTarget.value)}} />
             <Form.Text></Form.Text>
         </Form.Group>

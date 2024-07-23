@@ -75,6 +75,8 @@ export const visualizar = () => {
                         <th>Rut</th>
                         <th>Correo</th>
                         <th>Edad</th>
+                        <th>Dirección</th>
+                        <th>Teléfono</th>
                         <th>Accion</th>
                     </tr>
                 </thead>
@@ -87,6 +89,8 @@ export const visualizar = () => {
                                 <td>{p.rut}</td>
                                 <td>{p.correo}</td>
                                 <td>{p.edad}</td>
+                                <td>{p.direccion}</td>
+                                <td>{p.telefono}</td>
                                 <td>
                                     <Link href={{ pathname: "Editar", query: { key: p.key } }}>
                                         <Button variant='warning'>Editar</Button>
@@ -107,6 +111,9 @@ export const visualizar = () => {
                         <th>Raza</th>
                         <th>Tipo</th>
                         <th>Rut Dueño</th>
+                        <th>Dirección</th>
+                        <th>Teléfono</th>
+                        <th>Nombre Dueño</th>
                         <th>Accion</th>
                     </tr>
                 </thead>
@@ -119,6 +126,9 @@ export const visualizar = () => {
                                 <td>{m.raza}</td>
                                 <td>{m.tipo}</td>
                                 <td>{m.duenio}</td>
+                                <td>{m.direccion}</td>
+                                <td>{m.telefono}</td>
+                                <td>{m.n_duenio}</td>
                                 <td>
                                     <Link href={{ pathname: "Editar2", query: { key: m.key } }}>
                                         <Button variant='warning'>Editar</Button>

@@ -24,6 +24,9 @@ export const obtenerMascotas = async()=>{
             raza:doc.data().raza,
             tipo:doc.data().tipo,
             duenio:doc.data().duenio,
+            direccion:doc.data().direccion,
+            telefono:doc.data().telefono,
+            n_duenio:doc.data().n_duenio,
             key:doc.id
 
         }
@@ -43,6 +46,8 @@ export const obtenerPersonas = async()=>{
             edad:doc.data().edad,
             rut:doc.data().rut,
             contrasena:doc.data().contrasena,
+            direccion:doc.data().direccion,
+            telefono:doc.data().telefono,
             key:doc.id
 
         }
@@ -63,6 +68,8 @@ export const ObtenerPersona = async(key:string)=>{
             edad:docSnap.data().edad,
             rut:docSnap.data().rut,
             contrasena:docSnap.data().contrasena,
+            direccion:docSnap.data().direccion,
+            telefono:docSnap.data().telefono,
             key:docSnap.id
 
         }
@@ -97,6 +104,9 @@ export const ObtenerMascota = async(key:string)=>{
             raza:docSnap.data().raza,
             tipo:docSnap.data().tipo,
             duenio:docSnap.data().duenio,
+            direccion:docSnap.data().direccion,
+            telefono:docSnap.data().telefono,
+            n_duenio:docSnap.data().n_duenio,
             key:docSnap.id
 
         }

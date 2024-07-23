@@ -3,6 +3,9 @@ export interface Mascota{
     edad:number,
     raza:string,
     tipo:string,
-    duenio:string
+    duenio:string,
+    direccion:string,
+    telefono:string,
+    n_duenio:string
     key?:string
 }

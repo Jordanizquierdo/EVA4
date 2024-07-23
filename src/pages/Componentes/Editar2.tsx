@@ -10,7 +10,11 @@ const initialState:Mascota ={
     edad:0,
     raza:"",
     tipo:"",
-    duenio:""
+    duenio:"",
+    direccion:"",
+    telefono:"",
+    n_duenio:""
+
 }
 
 export const Editar2 = () => {
@@ -75,19 +79,48 @@ export const Editar2 = () => {
         </Form.Group>
 
         <Form.Group>
-            <Form.Label>tipo</Form.Label>
-            <Form.Control type="email" placeholder='Ingrese el tipo de mascota'
-            name='tipo'
-            value={mascota.tipo}
+            <Form.Label>Tipo</Form.Label>
+            <Form.Control as="select" name="tipo" onChange={(e) => handlemascota(e.currentTarget.name, e.currentTarget.value)}>
+                <option value="">{mascota.tipo}</option>
+                <option value="perro">Perro</option>
+                <option value="gato">Gato</option>
+                <option value="hamster">Hamster</option>
+            </Form.Control>
+            <Form.Text></Form.Text>
+        </Form.Group>
+
+        <Form.Group>
+            <Form.Label>Nombre del dueño</Form.Label>
+            <Form.Control type="text" placeholder='Ingrese el nombre del dueño'
+            name='n_duenio'
+            value={mascota.n_duenio}
             onChange={(e)=>{handlemascota(e.currentTarget.name,e.currentTarget.value)}} />
             <Form.Text></Form.Text>
         </Form.Group>
 
         <Form.Group>
             <Form.Label>Rut dueño</Form.Label>
-            <Form.Control type="email" placeholder='Ingrese el rut del dueño'
+            <Form.Control type="text" placeholder='Ingrese el rut del dueño'
             name='duenio'
             value={mascota.duenio}
+            onChange={(e)=>{handlemascota(e.currentTarget.name,e.currentTarget.value)}} />
+            <Form.Text></Form.Text>
+        </Form.Group>
+
+        <Form.Group>
+            <Form.Label>Direccion</Form.Label>
+            <Form.Control type="text" placeholder='Ingrese la direccion del propietario'
+            name='direccion'
+            value={mascota.direccion}
+            onChange={(e)=>{handlemascota(e.currentTarget.name,e.currentTarget.value)}} />
+            <Form.Text></Form.Text>
+        </Form.Group>
+
+        <Form.Group>
+            <Form.Label>Telefono de contacto</Form.Label>
+            <Form.Control type="text" placeholder='Ingrese el numero de telefono del propietario'
+            name='telefono'
+            value={mascota.telefono}
             onChange={(e)=>{handlemascota(e.currentTarget.name,e.currentTarget.value)}} />
             <Form.Text></Form.Text>
         </Form.Group>

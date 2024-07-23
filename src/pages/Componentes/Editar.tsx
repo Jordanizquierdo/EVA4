@@ -11,8 +11,10 @@ const initialState:Persona ={
     correo:"",
     edad:0,
     nombre:"",
+    rut:"",
     contrasena:"",
-    rut:""
+    direccion:"",
+    telefono:""
 }
 
 
@@ -79,7 +81,7 @@ export const Editar = () => {
 
         <Form.Group>
             <Form.Label>Contraseña</Form.Label>
-            <Form.Control type="email" placeholder='Ingrese una contraseña'
+            <Form.Control type="text" placeholder='Ingrese una contraseña'
             name='contrasena'
             onChange={(e)=>{handlepersona(e.currentTarget.name,e.currentTarget.value)}} />
             <Form.Text></Form.Text>
@@ -104,8 +106,26 @@ export const Editar = () => {
             <Form.Text></Form.Text>
         </Form.Group>
 
+        <Form.Group>
+            <Form.Label>direccion</Form.Label>
+            <Form.Control type="text" placeholder='Ingrese su direccion'
+            name='direccion'
+            value={persona.direccion}
+            onChange={(e)=>{handlepersona(e.currentTarget.name,e.currentTarget.value)}} />
+            <Form.Text></Form.Text>
+        </Form.Group>
+
+        <Form.Group>
+            <Form.Label>telefono</Form.Label>
+            <Form.Control type="text" placeholder='Ingrese su telefono'
+            name='telefono'
+            value={persona.telefono}
+            onChange={(e)=>{handlepersona(e.currentTarget.name,e.currentTarget.value)}} />
+            <Form.Text></Form.Text>
+        </Form.Group>
+
         <Button type='button' variant='success' onClick={modificar}>Modificar</Button>
-        <Button type='button' variant='danger' href="./Menu">Volver</Button>
+        <Button type='button' variant='danger' href="./Visualizar">Volver</Button>
 
 
     </Form>

@@ -12,7 +12,9 @@ const initialState:Persona ={
     edad:0,
     nombre:"",
     rut:"",
-    contrasena:""
+    contrasena:"",
+    direccion:"",
+    telefono:""
 }
 
 
@@ -61,7 +63,7 @@ export const RegistrarUser = () => {
 
         <Form.Group>
             <Form.Label>Contraseña</Form.Label>
-            <Form.Control type="email" placeholder='Ingrese una contraseña'
+            <Form.Control type="text" placeholder='Ingrese una contraseña'
             name='contrasena'
             onChange={(e)=>{handlepersona(e.currentTarget.name,e.currentTarget.value)}} />
             <Form.Text></Form.Text>
@@ -79,6 +81,22 @@ export const RegistrarUser = () => {
             <Form.Label>edad</Form.Label>
             <Form.Control type="number" placeholder='Ingrese su Edad'            
             name='edad'
+            onChange={(e)=>{handlepersona(e.currentTarget.name,e.currentTarget.value)}} />
+            <Form.Text></Form.Text>
+        </Form.Group>
+
+        <Form.Group>
+            <Form.Label>direccion</Form.Label>
+            <Form.Control type="text" placeholder='Ingrese su direccion'
+            name='direccion'
+            onChange={(e)=>{handlepersona(e.currentTarget.name,e.currentTarget.value)}} />
+            <Form.Text></Form.Text>
+        </Form.Group>
+
+        <Form.Group>
+            <Form.Label>telefono</Form.Label>
+            <Form.Control type="text" placeholder='Ingrese su telefono'
+            name='telefono'
             onChange={(e)=>{handlepersona(e.currentTarget.name,e.currentTarget.value)}} />
             <Form.Text></Form.Text>
         </Form.Group>
