@@ -81,7 +81,7 @@ export const visualizar = () => {
                 <tbody>
                     {
                         personas.map((p) => (
-                            <tr>
+                            <tr key={p.key}>
                                 <td>{p.nombre}</td>
                                 <td>{p.apellido}</td>
                                 <td>{p.rut}</td>
@@ -113,7 +113,7 @@ export const visualizar = () => {
                 <tbody>
                     {
                         mascotas.map((m) => (
-                            <tr>
+                            <tr key={m.key}>
                                 <td>{m.nombre}</td>
                                 <td>{m.edad}</td>
                                 <td>{m.raza}</td>
