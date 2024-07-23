@@ -3,7 +3,7 @@ import React, {useEffect,useState} from 'react'
 import { Mascota } from '@/Interfaces/imascota' 
 import { Form } from 'react-bootstrap'
 import { Button } from 'react-bootstrap'
-import { ObtenerPersona, actualizarMascota, actualizarPersona,ObtenerMascota } from '@/Firebase/promesas'
+import {actualizarMascota,ObtenerMascota } from '@/Firebase/promesas'
 
 const initialState:Mascota ={
     nombre:"",
@@ -17,12 +17,39 @@ const initialState:Mascota ={
 
 }
 
+const validarTelefono = (telefono: string)=> {
+    const regex = /^\d{9,15}$/; 
+    return regex.test(telefono);
+}
+
+const validarEdad = (edad: number)=> {
+    return edad > 0 && edad < 40;
+}
+
+
+
+
 export const Editar2 = () => {
     const router = useRouter()
     const [mascota, setMascota] = useState<Mascota>(initialState)
-    
+    const [errores, setErrores] = useState<{ [key: string]: string }>({});
     const handlemascota = (name:string,value:string)=>{
-        setMascota({...mascota,[name]:value})
+        let nuevoError = '';
+        if (name === 'telefono' && !validarTelefono(value)) {
+            nuevoError = 'Teléfono no válido';
+        } else if (name === 'edad' && !validarEdad(Number(value))) {
+            nuevoError = 'Edad no válida';
+        }
+        
+        setErrores({
+            ...errores,
+            [name]: nuevoError
+        });
+        
+        setMascota({
+            ...mascota,
+            [name]: value
+        });
     }
     useEffect(() => {
         const key = router.query.key;
@@ -43,6 +70,12 @@ export const Editar2 = () => {
         
     },[])
     const modificar=()=>{
+
+        const {telefono, edad } = mascota;
+        if (!validarTelefono(telefono) || !validarEdad(edad)) {
+            alert("Por favor, corrija los errores antes de modificar.");
+            return;
+        }
         actualizarMascota(mascota).then(()=>{
             alert("Se actualizo con exito")
         })
@@ -66,7 +99,7 @@ export const Editar2 = () => {
             name='edad'
             value={mascota.edad}
             onChange={(e)=>{handlemascota(e.currentTarget.name,e.currentTarget.value)}} />
-            <Form.Text></Form.Text>
+            <Form.Text className="text-danger">{errores.edad}</Form.Text>
         </Form.Group>
 
         <Form.Group>
@@ -122,7 +155,7 @@ export const Editar2 = () => {
             name='telefono'
             value={mascota.telefono}
             onChange={(e)=>{handlemascota(e.currentTarget.name,e.currentTarget.value)}} />
-            <Form.Text></Form.Text>
+            <Form.Text className="text-danger">{errores.telefono}</Form.Text>
         </Form.Group>
 
 
